@@ -1,0 +1,16 @@
+Alex "Akiva" Bamberger
+Computer Vision HW 4
+
+For this project, the utility class util.c was written to handle matrix operations.
+
+We assumed the light source had direction equivalent to the normal of the brightest point. This was because the dot product <n,s> is greatest when the angle between the normal and source vectors is 0 (e.g. cos (theta) = 1).
+
+Gradients were calculated using the following equation:
+(x0-x)^2 + (y0-y)^2 + z^2 = r^2
+z = sqrt(r^2 - (x0-x)^2 + (y0-y)^2)
+dz/dx = -(x0-x)/sqrt(r^2 - (x0-x)^2 + (y0-y)^2)
+dz/dy = -(y0-y)/sqrt(r^2 - (x0-x)^2 + (y0-y)^2)
+
+This was useful for finding (p,q) values for each of the points on the surface.
+
+The output of the depth map appeared to improve with more seed points, but with fewer points, noise appeared more often than desired.
